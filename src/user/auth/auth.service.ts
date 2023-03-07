@@ -1,13 +1,13 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { User } from '../user.entity';
 import { RegisterDto, LoginDto } from './auth.dto';
 import { AuthHelper } from './auth.helper';
-import { User } from "../user.entity";
 
 @Injectable()
 export class AuthService {
-  @InjectRepository(User)
+    @InjectRepository(User)
   private readonly repository: Repository<User>;
 
   @Inject(AuthHelper)
